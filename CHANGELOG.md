@@ -1,3 +1,5 @@
+### [0.0.7](https://github.com/yourheights/contentful-migrator/compare/0.0.6...0.0.7) (2021-03-17)
+
 ### [0.0.6](https://github.com/yourheights/contentful-migrator/compare/0.0.5...0.0.6) (2021-03-17)
 
 
