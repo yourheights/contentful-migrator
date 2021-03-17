@@ -1,7 +1,7 @@
 {
   "name": "@heights/contentful-migrator",
   "bin": {
-    "contentful-migrator": "dist/index.js"
+    "contentful-migrator": "bin/contentful-migrator"
   },
   "version": "0.0.4",
   "description": "Simplified migration tool for Contentful",
@@ -12,6 +12,7 @@
   "license": "MIT",
   "private": false,
   "files": [
+    "bin/**/*.*",
     "dist/**/*.*",
     "Readme.md"
   ],
@@ -29,6 +30,7 @@
   "dependencies": {
     "contentful-migration": "^4.0.10",
     "meow": "^9.0.0",
+    "ts-node": "^9.1.1",
     "yargs": "^16.2.0"
   },
   "devDependencies": {

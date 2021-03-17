@@ -16,13 +16,12 @@ const options: RunMigrationConfig = {
   environmentId: process.env.CONTENTFUL_ENVIRONMENT || "master",
 }
 
-const cli = meow()
-
 const getFiles = (dir: string) => {
+  console.log("reading dir", dir)
   const files = fs.readdirSync(dir)
   return files
     .filter((file) => file.match(/^\d/))
-    .map((file) => path.join(dir, file))
+    .map((file) => path.join(process.cwd(), dir, file))
 }
 
 const defaultLogPath = `migration-log.json`
@@ -54,29 +53,32 @@ const logMigration = (config: RunMigrationConfig) => {
     console.log("skipping migration", config.filePath)
     return
   }
+  console.log("running migration", config.filePath)
   return runMigration({
     ...config,
-    filePath: config.filePath,
+    filePath: path.resolve(config.filePath),
   }).then(() => {
-    console.log("ran migration:", config.filePath)
+    console.log("ran migration", config.filePath)
     fs.writeFileSync(defaultLogPath, JSON.stringify(migrations, null, 2))
   })
 }
 
-const migrations = async (dir: string) => {
+const migrations = () => async () => {
+  const cli = meow()
+  const dir = cli.input[0]
   if (!dir) {
     console.error("please include the path to the migrations directory")
   }
-  Promise.all(
-    getFiles(dir).map((filePath) =>
-      logMigration({
-        ...options,
-        ...{ filePath },
-      })
-    )
+  getFiles(dir).reduce(
+    (p, filePath) =>
+      p.then(() =>
+        logMigration({
+          ...options,
+          ...{ filePath },
+        })
+      ),
+    Promise.resolve()
   )
 }
 
-console.log(cli.input[0])
-
-migrations(cli.input[0])
+export default migrations()
