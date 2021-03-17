@@ -9,6 +9,8 @@ interface MigrationFiles {
   [index: string]: string[]
 }
 
+const cli = meow()
+
 const options: RunMigrationConfig = {
   filePath: "",
   spaceId: process.env.CONTENTFUL_SPACE_ID,
@@ -17,11 +19,10 @@ const options: RunMigrationConfig = {
 }
 
 const getFiles = (dir: string) => {
-  console.log("reading dir", dir)
   const files = fs.readdirSync(dir)
   return files
     .filter((file) => file.match(/^\d/))
-    .map((file) => path.join(process.cwd(), dir, file))
+    .map((file) => path.join(dir, file))
 }
 
 const defaultLogPath = `migration-log.json`
@@ -34,7 +35,7 @@ const getCompletedMigrations = (): MigrationFiles => {
   return JSON.parse(rawData)
 }
 
-const logMigration = (config: RunMigrationConfig) => {
+const logMigration = (dir: string, config: RunMigrationConfig) => {
   const completedMigrations = getCompletedMigrations()
   const { environmentId } = options
   if (!environmentId) {
@@ -56,7 +57,7 @@ const logMigration = (config: RunMigrationConfig) => {
   console.log("running migration", config.filePath)
   return runMigration({
     ...config,
-    filePath: path.resolve(config.filePath),
+    filePath: path.join(process.cwd(), config.filePath),
   }).then(() => {
     console.log("ran migration", config.filePath)
     fs.writeFileSync(defaultLogPath, JSON.stringify(migrations, null, 2))
@@ -64,7 +65,6 @@ const logMigration = (config: RunMigrationConfig) => {
 }
 
 const migrations = () => async () => {
-  const cli = meow()
   const dir = cli.input[0]
   if (!dir) {
     console.error("please include the path to the migrations directory")
@@ -72,7 +72,7 @@ const migrations = () => async () => {
   getFiles(dir).reduce(
     (p, filePath) =>
       p.then(() =>
-        logMigration({
+        logMigration(dir, {
           ...options,
           ...{ filePath },
         })
