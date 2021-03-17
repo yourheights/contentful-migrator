@@ -20,7 +20,9 @@ const cli = meow()
 
 const getFiles = (dir: string) => {
   const files = fs.readdirSync(dir)
-  return files.filter((file) => file.match(/^\d/))
+  return files
+    .filter((file) => file.match(/^\d/))
+    .map((file) => path.join(dir, file))
 }
 
 const defaultLogPath = `migration-log.json`
@@ -54,7 +56,7 @@ const logMigration = (config: RunMigrationConfig) => {
   }
   return runMigration({
     ...config,
-    filePath: path.join(__dirname, config.filePath),
+    filePath: config.filePath,
   }).then(() => {
     console.log("ran migration:", config.filePath)
     fs.writeFileSync(defaultLogPath, JSON.stringify(migrations, null, 2))
