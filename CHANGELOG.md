@@ -1,3 +1,10 @@
+### [0.0.5](https://github.com/yourheights/contentful-migrator/compare/0.0.4...0.0.5) (2021-03-17)
+
+
+### Bug Fixes
+
+* executable with ts-node ([b071860](https://github.com/yourheights/contentful-migrator/commit/b071860e756a3418730f444c62105e560a4fb1f3))
+
 ### [0.0.4](https://github.com/yourheights/contentful-migrator/compare/0.0.3...0.0.4) (2021-03-17)
 
 
