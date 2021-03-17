@@ -23,13 +23,13 @@ const getFiles = (dir: string) => {
   return files.filter((file) => file.match(/^\d/))
 }
 
-const logPath = `migration-log.json`
+const defaultLogPath = `migration-log.json`
 
 const getCompletedMigrations = (): MigrationFiles => {
-  if (!fs.existsSync(logPath)) {
+  if (!fs.existsSync(defaultLogPath)) {
     return {}
   }
-  const rawData = fs.readFileSync(logPath, "utf-8")
+  const rawData = fs.readFileSync(defaultLogPath, "utf-8")
   return JSON.parse(rawData)
 }
 
@@ -57,7 +57,7 @@ const logMigration = (config: RunMigrationConfig) => {
     filePath: path.join(__dirname, config.filePath),
   }).then(() => {
     console.log("ran migration:", config.filePath)
-    fs.writeFileSync(logPath, JSON.stringify(migrations, null, 2))
+    fs.writeFileSync(defaultLogPath, JSON.stringify(migrations, null, 2))
   })
 }
 
