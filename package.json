@@ -3,7 +3,7 @@
   "bin": {
     "contentful-migrator": "bin/contentful-migrator"
   },
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Simplified migration tool for Contentful",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

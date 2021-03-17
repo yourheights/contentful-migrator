@@ -1,3 +1,10 @@
+### [0.0.6](https://github.com/yourheights/contentful-migrator/compare/0.0.5...0.0.6) (2021-03-17)
+
+
+### Bug Fixes
+
+* filepath logging ([916ab58](https://github.com/yourheights/contentful-migrator/commit/916ab584f4644f4559b866dc8943673c254a4d55))
+
 ### [0.0.5](https://github.com/yourheights/contentful-migrator/compare/0.0.4...0.0.5) (2021-03-17)
 
 
