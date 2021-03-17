@@ -1,0 +1,47 @@
+{
+  "name": "@heights/contentful-migrator",
+  "bin": {
+    "contentful-migrator": "dist/index.js"
+  },
+  "version": "0.0.1",
+  "description": "Simplified migration tool for Contentful",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "repository": "https://github.com/yourheights/contentful-migrator.git",
+  "author": "Nicholas Martin <nico@yourheights.com>",
+  "license": "MIT",
+  "private": false,
+  "files": [
+    "dist/**/*.*",
+    "Readme.md"
+  ],
+  "keywords": [
+    "contentful",
+    "migration",
+    "cms",
+    "directory"
+  ],
+  "scripts": {
+    "start": "tsc --watch",
+    "build": "tsc",
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx"
+  },
+  "dependencies": {
+    "contentful-migration": "^4.0.10",
+    "meow": "^9.0.0",
+    "yargs": "^16.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.35",
+    "@types/react": "^17.0.2",
+    "@types/yargs": "^16.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.15.2",
+    "@typescript-eslint/parser": "^4.15.2",
+    "eslint": "^7.20.0",
+    "eslint-config-prettier": "^8.1.0",
+    "prettier": "^2.2.1",
+    "react": "^17.0.1",
+    "typescript": "^4.2.2",
+    "yalc": "^1.0.0-pre.50"
+  }
+}
