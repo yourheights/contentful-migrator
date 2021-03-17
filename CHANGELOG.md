@@ -1,3 +1,10 @@
+### [0.0.4](https://github.com/yourheights/contentful-migrator/compare/0.0.3...0.0.4) (2021-03-17)
+
+
+### Bug Fixes
+
+* use provided directory ([049b931](https://github.com/yourheights/contentful-migrator/commit/049b931bfffdae347144e41c780ea3ecd34d54ff))
+
 ### [0.0.3](https://github.com/yourheights/contentful-migrator/compare/0.0.2...0.0.3) (2021-03-17)
 
 
