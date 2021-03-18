@@ -1,4 +1,8 @@
-<p align="center" style="font-size: 5em">🚚</p>
+<p align="center">
+  <img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4e6.png" width="120" />
+  <img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4e6.png" width="120" />
+  <img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4e6.png" width="120" />
+</p>
 
 <h1 align="center"> Contentful Migrator</h1>
 
