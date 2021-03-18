@@ -1,3 +1,10 @@
+### [0.0.8](https://github.com/yourheights/contentful-migrator/compare/0.0.7...0.0.8) (2021-03-18)
+
+
+### Bug Fixes
+
+* don't log interruptions ([2a8a8ed](https://github.com/yourheights/contentful-migrator/commit/2a8a8ed962fa999525361562c0a4ad5dd979c173))
+
 ### [0.0.7](https://github.com/yourheights/contentful-migrator/compare/0.0.6...0.0.7) (2021-03-17)
 
 ### [0.0.6](https://github.com/yourheights/contentful-migrator/compare/0.0.5...0.0.6) (2021-03-17)
