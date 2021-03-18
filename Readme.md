@@ -8,7 +8,9 @@
 
 <h3 align="center">Contentful migration, made easier</h3>
 
-<p align="center">Contentful Migrator is a handy cli tool that extends the existing [contentful-migration](https://www.npmjs.com/package/contentful-migration) tool, allowing you to run multiple migration files.</p>
+<p align="center">
+  Contentful Migrator is a handy cli tool that extends the existing <a href="https://www.npmjs.com/package/contentful-migration">contentful-migration</a> tool, allowing you to run multiple migration files.
+</p>
 
 <p align='center'>
 <a href="https://www.npmjs.com/package/@heights/contentful-migrator">
