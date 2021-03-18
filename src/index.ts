@@ -58,7 +58,11 @@ const logMigration = (dir: string, config: RunMigrationConfig) => {
   return runMigration({
     ...config,
     filePath: path.join(process.cwd(), config.filePath),
-  }).then(() => {
+  }).then((completed) => {
+    if (!completed) {
+      console.log("migration was interrupted", config.filePath)
+      return
+    }
     console.log("ran migration", config.filePath)
     fs.writeFileSync(defaultLogPath, JSON.stringify(migrations, null, 2))
   })
