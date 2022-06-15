@@ -2,16 +2,18 @@
 
 import * as fs from "fs"
 import * as path from "path"
-import * as meow from "meow"
+import meow from "meow"
 import { runMigration, RunMigrationConfig } from "contentful-migration"
 
-interface MigrationFiles {
+type MigrationFiles = {
   [index: string]: string[]
 }
 
+type MigrationConfig = RunMigrationConfig & { filePath: string }
+
 const cli = meow()
 
-const options: RunMigrationConfig = {
+const options: MigrationConfig & { filePath: string } = {
   filePath: "",
   spaceId: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_PERSONAL_ACCESS_TOKEN,
@@ -35,7 +37,7 @@ const getCompletedMigrations = (): MigrationFiles => {
   return JSON.parse(rawData)
 }
 
-const logMigration = (dir: string, config: RunMigrationConfig) => {
+const logMigration = (dir: string, config: MigrationConfig) => {
   const completedMigrations = getCompletedMigrations()
   const { environmentId } = options
   if (!environmentId) {

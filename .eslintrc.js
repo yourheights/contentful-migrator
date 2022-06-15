@@ -1,6 +1,14 @@
 module.exports = {
-  root: true,
-  parser: "@typescript-eslint/parser",
-  plugins: ["@typescript-eslint"],
-  extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
-};
+  parser: "@typescript-eslint/parser", // Specifies the ESLint parser
+  extends: ["eslint:recommended", "prettier", "plugin:prettier/recommended"],
+  env: {
+    browser: true,
+    node: true,
+    es6: true,
+  },
+  plugins: ["prettier", "@typescript-eslint"],
+  parserOptions: {
+    ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
+    sourceType: "module", // Allows for the use of imports
+  },
+}

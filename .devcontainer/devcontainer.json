@@ -1,29 +1,44 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.238.0/containers/typescript-node
 {
-  "name": "Node.js & TypeScript",
-  "build": {
-    "dockerfile": "Dockerfile",
-    // Update 'VARIANT' to pick a Node version: 10, 12, 14
-    "args": { "VARIANT": "14" }
-  },
+	"name": "Node.js & TypeScript",
+	"build": {
+		"dockerfile": "Dockerfile",
+		// Update 'VARIANT' to pick a Node version: 18, 16, 14.
+		// Append -bullseye or -buster to pin to an OS version.
+		// Use -bullseye variants on local on arm64/Apple Silicon.
+		"args": { 
+			"VARIANT": "16-bullseye"
+		}
+	},
 
-  // Set *default* container specific settings.json values on container create.
-  "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash"
-  },
-  "runArgs": ["--env-file", ".devcontainer.env", "--shm-size", "256m"],
-
-  // Add the IDs of extensions you want installed when the container is created.
-  "extensions": [
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"dbaeumer.vscode-eslint",
+    "mikestead.dotenv",
     "esbenp.prettier-vscode",
     "editorconfig.editorconfig",
     "christian-kohler.npm-intellisense",
     "visualstudioexptteam.vscodeintellicode",
-    "ms-vscode.vscode-typescript-tslint-plugin",
-    "mikestead.dotenv"
-  ],
-  "postCreateCommand": "sudo chown node:node -R .",
-  "mounts": [
-    "source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume",
-    "source=yalc,target=/home/node/.yalc,type=volume"
-  ]
+    "xyc.vscode-mdx-preview",
+    "wix.vscode-import-cost",
+    "ms-vsliveshare.vsliveshare",
+    "gruntfuggly.todo-tree",
+    "eamodio.gitlens"
+			]
+		}
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "yarn install",
+
+	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "node"
 }
