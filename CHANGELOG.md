@@ -1,3 +1,7 @@
+
+
+### [0.0.12](https://github.com/yourheights/contentful-migrator/compare/0.0.11...0.0.12) (2022-06-15)
+
 ### [0.0.11](https://github.com/yourheights/contentful-migrator/compare/0.0.9...0.0.11) (2021-03-18)
 
 ### [0.0.9](https://github.com/yourheights/contentful-migrator/compare/0.0.8...0.0.9) (2021-03-18)
@@ -45,4 +49,3 @@
 ### Bug Fixes
 
 * default log path ([1fef269](https://github.com/yourheights/contentful-migrator/commit/1fef26933bb2f55903e90e614f80076735b0414d))
-
