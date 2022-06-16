@@ -1,5 +1,12 @@
 
 
+### [0.0.13](https://github.com/yourheights/contentful-migrator/compare/0.0.12...0.0.13) (2022-06-16)
+
+
+### Bug Fixes
+
+* downgrade ESM package ([263b22e](https://github.com/yourheights/contentful-migrator/commit/263b22e3562b8f8b421d916263d070d8d4d5b9bc))
+
 ### [0.0.12](https://github.com/yourheights/contentful-migrator/compare/0.0.11...0.0.12) (2022-06-15)
 
 ### [0.0.11](https://github.com/yourheights/contentful-migrator/compare/0.0.9...0.0.11) (2021-03-18)
